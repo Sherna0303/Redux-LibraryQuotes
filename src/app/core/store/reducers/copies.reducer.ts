@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getCopies } from '../thunks/copies.thunk';
 import { Copy } from '../../models/copy.model';
   
-  interface CopiesState {
-    books: Copy[];
-    status: 'idle' | 'loading' | 'succeeded' | 'failed';
-    error: string | null;
-  }
+interface CopiesState {
+  books: Copy[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
   
 const initialState: CopiesState = {
   books: [],
