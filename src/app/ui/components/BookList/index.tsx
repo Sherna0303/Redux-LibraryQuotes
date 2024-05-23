@@ -8,7 +8,7 @@ interface BooksListProps {
   
 const BooksList: React.FC<BooksListProps> = ({ books, addToCart }) => {
   return (
-    <ul>
+    <ul className='books__container'>
       {books.map((book) => (
         <BookItem key={book.id} book={book} isInCart={false} addToCart={addToCart}/>
       ))}
