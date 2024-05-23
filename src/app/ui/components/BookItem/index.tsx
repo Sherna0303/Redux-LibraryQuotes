@@ -7,19 +7,13 @@ import { Title } from '../../elements/Title';
 interface CopyProps {
     book: Copy;
     isInCart: boolean;
+    addToCart: (copy: Copy) => void;
   }
   
-export const BookItem: React.FC<CopyProps> = ({ book, isInCart }) => {
+export const BookItem: React.FC<CopyProps> = ({ book, isInCart, addToCart }) => {
   
   const imageUrls = [
     'https://imagessl9.casadellibro.com/a/l/s5/29/9788416628629.webp',
-    'https://imagessl8.casadellibro.com/a/l/s5/18/9788408169918.webp',
-    'https://imagessl8.casadellibro.com/a/l/s5/08/9788401343308.webp',
-    'https://imagessl5.casadellibro.com/a/l/s5/05/9788467037005.webp',
-    'https://imagessl5.casadellibro.com/a/l/s5/05/9788483658505.webp',
-    'https://imagessl6.casadellibro.com/a/l/s5/36/9788408125136.webp',
-    'https://imagessl2.casadellibro.com/a/l/s5/02/cdlet00000002.webp',
-    'https://imagessl6.casadellibro.com/a/l/s5/06/9788408123606.webp'
   ];
   
   const getRandomImageUrl = () => {
@@ -43,7 +37,7 @@ export const BookItem: React.FC<CopyProps> = ({ book, isInCart }) => {
         <Span className='book__detail' text='Type:'/>
         <Paragraph className='book__item' text={book.type}/>
       </div>
-      <Button className='book__button' text={isInCart ? 'Added' : 'Add to Cart'} />
+      <Button className='book__button' text={isInCart ? 'Added' : 'Add to Cart'} onClick={() => addToCart(book)} />
     </div>
   );
 };
