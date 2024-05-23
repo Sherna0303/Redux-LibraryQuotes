@@ -10,7 +10,7 @@ interface CartsProps {
   
 const Carts: React.FC<CartsProps> = ({ carts, setActiveCart, removeCart, handleAddCart }) => {
   return (
-    <div>
+    <>
       <Button onClick={handleAddCart} text="Create New Cart" className={'cart__button'} />
       <h3>Existing Carts</h3>
       <ul>
@@ -21,7 +21,7 @@ const Carts: React.FC<CartsProps> = ({ carts, setActiveCart, removeCart, handleA
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
   
