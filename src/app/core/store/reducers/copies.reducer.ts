@@ -1,13 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCopies } from '../thunks/copies.thunk';
-import { Copy } from '../../models/copy.model';
-  
-interface CopiesState {
-  books: Copy[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-}
-  
+import { RootState } from '../store';
+import { CopiesState } from '../../models/copies-state.model';
+
+
 const initialState: CopiesState = {
   books: [],
   status: 'idle',
@@ -29,9 +25,12 @@ const copiesSlice = createSlice({
       })
       .addCase(getCopies.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message || 'Failed to fetch books';
+        state.error = action.error.message || 'Failed to get books';
       });
   },
 });
   
+export const selectBooks = (state: RootState) => state.copies.books;
+export const selectStatus = (state: RootState) => state.copies.status;
+export const selectError = (state: RootState) => state.copies.error;
 export default copiesSlice.reducer;

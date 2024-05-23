@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Copy } from '../../models/copy.model';
 import { RootState } from '../store';
-import { CartInfo } from '../../models/cartInfo.model';
+import { CartInfo } from '../../models/cart-info.model';
 
 
 

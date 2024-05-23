@@ -1,5 +1,5 @@
 import { Button } from '../../elements/Button';
-import { CartInfo } from '../../../core/models/cartInfo.model';
+import { CartInfo } from '../../../core/models/cart-info.model';
 
 interface CartsProps {
     carts: CartInfo[];
