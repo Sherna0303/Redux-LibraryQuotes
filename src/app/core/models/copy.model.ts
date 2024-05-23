@@ -1,5 +1,5 @@
 export interface Copy {
-    id: number;
+    id: string;
     title: string;
     author: string;
     price: number;
