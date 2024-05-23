@@ -1,18 +1,13 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../core/store/store';
 import { useEffect } from 'react';
 import { getCopies } from '../core/store/thunks/copies.thunk';
 import BooksList from '../ui/components/BookList';
-import { useAppDispatch } from '../core/hooks/useStore';
 import { useCart } from '../core/hooks/useCart';
 import { Copy } from '../core/models/copy.model';
+import { useCopies } from '../core/hooks/useCopies';
 
 const BooksListContainer: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const books = useSelector((state: RootState) => state.copies.books);
-  const status = useSelector((state: RootState) => state.copies.status);
-  const error = useSelector((state: RootState) => state.copies.error);
   const { addToCart } = useCart();
+  const { books, status, error, dispatch } = useCopies();
 
   const handleAddToCart = (copy: Copy) => {
     addToCart(copy);
