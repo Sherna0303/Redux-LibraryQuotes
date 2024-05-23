@@ -4,6 +4,7 @@ import BooksList from '../ui/components/BookList';
 import { useCart } from '../core/hooks/useCart';
 import { Copy } from '../core/models/copy.model';
 import { useCopies } from '../core/hooks/useCopies';
+import { getAggregateService } from '../core/services/get-aggregate-id.service';
 
 const BooksListContainer: React.FC = () => {
   const { addToCart } = useCart();
@@ -14,8 +15,18 @@ const BooksListContainer: React.FC = () => {
   };
 
   useEffect(() => {
+    const validateAggregateId = async () => {
+      const idRoot = localStorage.getItem('AggregateId');
+
+      if (!idRoot) {
+        await getAggregateService();
+      }
+    };
+
+
     if (status === 'idle') {
       dispatch(getCopies());
+      validateAggregateId();
     }
   }, [status, dispatch]);
 

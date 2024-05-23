@@ -1,4 +1,5 @@
 import { useCart } from '../core/hooks/useCart';
+import Calculate from '../ui/components/Calculate';
 import Cart from '../ui/components/Cart';
 import Carts from '../ui/components/Carts';
 
@@ -30,7 +31,9 @@ const CartContainer: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
+      <Calculate carts={carts}/>
+
       <Carts carts={carts} 
         setActiveCart={handleSetActiveCart} 
         handleAddCart={handleAddCart} 
@@ -46,7 +49,7 @@ const CartContainer: React.FC = () => {
           onDecreaseQuantity={handleDecreaseQuantity} 
         />
       )}
-    </div>
+    </>
   );
 };
 
