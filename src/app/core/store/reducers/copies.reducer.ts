@@ -1,20 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCopies } from '../thunks/copies.thunk';
-
-interface Copy {
-    id: number;
-    title: string;
-    author: string;
-  }
+import { Copy } from '../../models/copy.model';
   
   interface CopiesState {
-    copies: Copy[];
+    books: Copy[];
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null;
   }
   
 const initialState: CopiesState = {
-  copies: [],
+  books: [],
   status: 'idle',
   error: null,
 };
@@ -30,7 +25,7 @@ const copiesSlice = createSlice({
       })
       .addCase(getCopies.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.copies = action.payload;
+        state.books = action.payload;
       })
       .addCase(getCopies.rejected, (state, action) => {
         state.status = 'failed';
