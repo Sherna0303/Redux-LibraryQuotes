@@ -1,7 +1,4 @@
 .cart__container {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
@@ -13,6 +10,8 @@
     color: #333;
     margin-bottom: 20px;
     text-align: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #007BFF;
 }
 
 .cart__list {
@@ -23,10 +22,12 @@
 
 .cart__book {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #cfcfcf;
+    gap: 10px;
 }
 
 .cart__book:last-child {
@@ -35,6 +36,7 @@
 
 .cart__book-title {
     font-size: 1.1em;
+    font-weight: bold;
     flex: 2;
     color: #333;
 }
@@ -46,7 +48,7 @@
 
 .cart__book-button {
     background-color: #007BFF;
-    color: #ffffff;
+    color: #000000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -54,13 +56,33 @@
     margin: 0 5px;
 }
 
+.cart__amount {
+    display: flex;
+    gap: 10px;
+}
+
+.cart__amount-title {
+    font-weight: 400;
+}
+
+.cart__book-button--amount {
+    background-color: #e2e1e1;
+    font-weight: bold;
+}
+
+.cart__book-button--amount:hover {
+    background-color: #bbbbbb;
+}
+
 .cart__book-button--remove {
-    background-color: #dc3545;
+    font-weight: 400;
+    color: white;
+    background-color: #f44336e5;
     margin-left: 10px;
 }
 
-.cart__book-button:hover {
-    opacity: 0.8;
+.cart__book-button--remove:hover {
+    background-color: #b63535;
 }
 
 .cart__book-quantity {
