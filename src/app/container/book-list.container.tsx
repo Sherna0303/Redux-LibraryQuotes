@@ -9,6 +9,7 @@ import { getAggregateService } from '../core/services/get-aggregate-id.service';
 const BooksListContainer: React.FC = () => {
   const { addToCart } = useCart();
   const { books, status, error, dispatch } = useCopies();
+  const { addCart } = useCart();
 
   const handleAddToCart = (copy: Copy) => {
     addToCart(copy);
@@ -25,10 +26,11 @@ const BooksListContainer: React.FC = () => {
 
 
     if (status === 'idle') {
+      addCart();
       dispatch(getCopies());
       validateAggregateId();
     }
-  }, [status, dispatch]);
+  }, [status, dispatch, addCart]);
 
   return (
     <>
