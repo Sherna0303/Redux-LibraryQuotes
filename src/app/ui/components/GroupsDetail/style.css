@@ -16,6 +16,11 @@
 }
 
 .group__copies {
+    display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
+    height: 190px;
+    overflow-y: auto;
+
 }
