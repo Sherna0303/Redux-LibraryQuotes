@@ -1,0 +1,9 @@
+.icon {
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    display: block;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+}
