@@ -1,0 +1,19 @@
+:root {
+    font-family: Raleway, serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ccc; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #75a1e4d0; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #72aafdd0;
+}
