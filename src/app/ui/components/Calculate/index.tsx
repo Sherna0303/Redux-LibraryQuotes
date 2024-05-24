@@ -6,6 +6,7 @@ import Modal from '../Modal';
 import { ChangeEvent } from 'react';
 import { Title } from '../../elements/Title';
 import Groups from '../GroupsDetail';
+import './style.css';
 
 interface CalculateProps {
     carts: CartInfo[];
@@ -24,11 +25,12 @@ const Calculate: React.FC<CalculateProps> = ({ carts }) => {
   
   return (
     <div className='calculate__container'>
+      <Label classNameInput="calculate__input" classNameLabel="calculate__label" classNameSpan="calculate__span" nameInput="date" text="" type="date" onChange={onDateChange} />
       <Button onClick={onCalculate} text="Calculate" className="calculate__button" />
-      <Label classNameInput="calculate__input" classNameLabel="calculate__label" classNameSpan="calculate__span" nameInput="date" text="Date:" type="date" onChange={onDateChange} />
+      
   
       {loading && <p>Loading...</p>}
-      {error && <p className="error">{error}</p>}
+      {error && <p className="calculate__error">{error}</p>}
   
       {showModal && apiResponse && (
         <Modal onClose={handleCloseModal}>
