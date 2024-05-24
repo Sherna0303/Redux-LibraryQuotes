@@ -1,0 +1,14 @@
+.books__container {
+    margin: 100px 70px;
+}
+
+.books__title {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+}
+
+.books__list {
+    display: flex;
+    flex-wrap: wrap;
+}
