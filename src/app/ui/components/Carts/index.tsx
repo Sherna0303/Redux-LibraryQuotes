@@ -18,6 +18,13 @@ interface CartsProps {
 const Carts: React.FC<CartsProps> = ({ carts, setActiveCart, removeCart, handleAddCart }) => {
   const { dispatch } = useAside();
 
+  const handleIsEmpty = (cartLength: number) => {
+    if (cartLength > 0) {
+      return false;
+    }
+    return true;
+  };
+
   const handleActivateCart = (cartId: string) => {
     setActiveCart(cartId);
     dispatch(setContent('cartDetails'));
@@ -29,7 +36,7 @@ const Carts: React.FC<CartsProps> = ({ carts, setActiveCart, removeCart, handleA
       <ul className='carts__list'>
         {carts.map(cart => (
           <li key={cart.id} className='carts__item'>
-            <Button onClick={() => handleActivateCart(cart.id)} text={`Bag #${cart.readableId}`} className='carts__button carts__button--cart' />
+            <Button onClick={() => handleActivateCart(cart.id)} text={`Bag #${cart.readableId} ${handleIsEmpty(cart.items.length) ? '- Empty' : ''}`} className={`carts__button carts__button--cart ${handleIsEmpty(cart.items.length) && 'carts__button--empty'}`}/>
             <button onClick={() => removeCart(cart.id)} className='carts__button carts__button--remove'>
               <Icon color='white' size={32} icon='shopping-bag-x'/>
             </button>

@@ -38,6 +38,17 @@
     padding: 10px 70px;
 }
 
+.carts__button--empty {
+    background-color: transparent;
+    color: #dc3545;
+    outline: auto;
+    padding: 10px 50px;
+}
+
+.carts__button--empty:hover {
+    background-color: #971e2a !important;
+}
+
 .carts__button--cart:hover {
     background-color: #07344e;
 }
