@@ -1,38 +1,43 @@
-import { useDispatch } from 'react-redux';
 import { CartInfo } from '../models/cart-info.model';
+import { setDate, setError, toggleModal } from '../store/actions/calculate.actions';
+import { useAppDispatch, useAppSelector } from './useStore';
+import { selectApiReponse, selectDate, selectError, selectLoading, selectShowModal } from '../store/reducers/calculate.reducer';
 import { calculateGroupsService } from '../services/calculateGroups.service';
-import { setApiResponse, setDate, toggleModal } from '../store/actions/calculate.actions';
-import { useAppSelector } from './useStore';
-import { selectApiReponse, selectDate, selectShowModal } from '../store/reducers/calculate.reducer';
 
 export const useCalculate = () => {
   const date = useAppSelector(selectDate);
   const apiResponse = useAppSelector(selectApiReponse);
   const showModal = useAppSelector(selectShowModal);
-  const dispatch = useDispatch();
-  
+  const loading = useAppSelector(selectLoading);
+  const error = useAppSelector(selectError);
+  const dispatch = useAppDispatch();
+
   const handleDateChange = (newDate: string) => {
     dispatch(setDate(newDate));
   };
-  
-  const handleCalculate = async (carts: CartInfo[]) => {
-    if (carts.length > 0 && carts.every(cart => cart.items.length > 0) && date != '') {
-      const response = await calculateGroupsService(carts, date);
-      if (response) {
-        dispatch(setApiResponse(response));
-        dispatch(toggleModal());
-      }
+
+  const handleCalculate = (carts: CartInfo[]) => {
+    if (!date) {
+      dispatch(setError('Date is required'));
+      return;
+    }
+    if (carts.length > 0 && carts.every(cart => cart.items.length > 0)) {
+      dispatch(calculateGroupsService(carts, date));
+    } else {
+      dispatch(setError('All carts must contain at least one item.'));
     }
   };
-  
+
   const handleCloseModal = () => {
     dispatch(toggleModal());
   };
-  
+
   return {
     date,
     apiResponse,
     showModal,
+    loading,
+    error,
     handleDateChange,
     handleCalculate,
     handleCloseModal,

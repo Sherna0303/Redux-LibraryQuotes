@@ -12,7 +12,7 @@ interface CalculateProps {
   }
   
 const Calculate: React.FC<CalculateProps> = ({ carts }) => {
-  const { apiResponse, showModal, handleDateChange, handleCalculate, handleCloseModal } = useCalculate();
+  const { apiResponse, showModal, loading, error, handleDateChange, handleCalculate, handleCloseModal } = useCalculate();
   
   const onDateChange = (event: ChangeEvent<HTMLInputElement>) => {
     handleDateChange(event.target.value);
@@ -26,6 +26,9 @@ const Calculate: React.FC<CalculateProps> = ({ carts }) => {
     <div className='calculate__container'>
       <Button onClick={onCalculate} text="Calculate" className="calculate__button" />
       <Label classNameInput="calculate__input" classNameLabel="calculate__label" classNameSpan="calculate__span" nameInput="date" text="Date:" type="date" onChange={onDateChange} />
+  
+      {loading && <p>Loading...</p>}
+      {error && <p className="error">{error}</p>}
   
       {showModal && apiResponse && (
         <Modal onClose={handleCloseModal}>
