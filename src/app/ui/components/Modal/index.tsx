@@ -1,3 +1,5 @@
+import './style.css';
+
 interface ModalProps {
     children: React.ReactNode;
     onClose: () => void;

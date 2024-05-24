@@ -1,0 +1,16 @@
+.copy__container {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+}
+
+.copy__subtitle {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.copy_paragraph {
+    margin-bottom: 5px;
+}

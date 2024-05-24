@@ -1,0 +1,21 @@
+.group__container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.group__subtitle {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.group__paragraph {
+    margin-bottom: 5px;
+}
+
+.group__copies {
+    list-style-type: none;
+    padding: 0;
+}

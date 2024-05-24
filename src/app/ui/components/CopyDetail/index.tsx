@@ -1,6 +1,7 @@
 import { CopyInfo } from '../../../core/models/api-response.model';
 import { Paragraph } from '../../elements/Paragraph';
 import { Title } from '../../elements/Title';
+import './style.css';
 
 interface CopyDetailProps {
     copy: CopyInfo;

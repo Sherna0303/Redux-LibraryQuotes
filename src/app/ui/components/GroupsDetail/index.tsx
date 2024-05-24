@@ -2,6 +2,7 @@ import { GroupInfo } from '../../../core/models/api-response.model';
 import { Paragraph } from '../../elements/Paragraph';
 import { Title } from '../../elements/Title';
 import CopyDetail from '../CopyDetail';
+import './style.css';
 
 interface GroupsProps {
     group: GroupInfo;
