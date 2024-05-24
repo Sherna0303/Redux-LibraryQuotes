@@ -3,6 +3,7 @@ import { Button } from '../../elements/Button';
 import { Paragraph } from '../../elements/Paragraph';
 import { Span } from '../../elements/Span';
 import { Title } from '../../elements/Title';
+import './style.css';
 
 interface CopyProps {
     book: Copy;
@@ -13,7 +14,7 @@ interface CopyProps {
 export const BookItem: React.FC<CopyProps> = ({ book, isInCart, addToCart }) => {
   
   const imageUrls = [
-    'https://imagessl9.casadellibro.com/a/l/s5/29/9788416628629.webp',
+    'https://bookly-theme.myshopify.com/cdn/shop/products/booknew-3.jpg?v=1587119671&width=360',
   ];
   
   const getRandomImageUrl = () => {
@@ -25,19 +26,15 @@ export const BookItem: React.FC<CopyProps> = ({ book, isInCart, addToCart }) => 
     <div className={`book ${isInCart ? 'book__container book--in-cart' : 'book__container'}`}>
       <img className='book__img' src={getRandomImageUrl()} />
       <Title className='book__title' text={book.title} type='h2'/>
-      <div className="book__detail-container">
-        <Span className='book__detail' text='Author:'/>
-        <Paragraph className='book__item' text={book.author}/>
-      </div>
-      <div className="book__detail-container">
-        <Span className='book__detail' text='Price:'/>
+      <Paragraph className='book__author' text={book.author}/>
+      <Paragraph className='book__type' text={book.type}/>
+      <div className="book__detail-container book__detail-price">
+        <Span className='book__detail' text='$'/>
         <Paragraph className='book__item' text={book.price.toFixed(2)}/>
       </div>
-      <div className="book__detail-container">
-        <Span className='book__detail' text='Type:'/>
-        <Paragraph className='book__item' text={book.type}/>
+      <div className="book__container-button">
+        <Button className='book__button' text={isInCart ? 'Added' : 'Add to Cart'} onClick={() => addToCart(book)} />
       </div>
-      <Button className='book__button' text={isInCart ? 'Added' : 'Add to Cart'} onClick={() => addToCart(book)} />
     </div>
   );
 };
