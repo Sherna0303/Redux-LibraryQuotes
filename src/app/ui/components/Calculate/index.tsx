@@ -2,10 +2,7 @@ import { CartInfo } from '../../../core/models/cart-info.model';
 import { Button } from '../../elements/Button';
 import { Label } from '../../elements/Label';
 import { useCalculate } from '../../../core/hooks/useCalculate';
-import Modal from '../Modal';
 import { ChangeEvent } from 'react';
-import { Title } from '../../elements/Title';
-import Groups from '../GroupsDetail';
 import './style.css';
 
 interface CalculateProps {
@@ -13,7 +10,7 @@ interface CalculateProps {
   }
   
 const Calculate: React.FC<CalculateProps> = ({ carts }) => {
-  const { apiResponse, showModal, loading, error, handleDateChange, handleCalculate, handleCloseModal } = useCalculate();
+  const { loading, error, handleDateChange, handleCalculate } = useCalculate();
   
   const onDateChange = (event: ChangeEvent<HTMLInputElement>) => {
     handleDateChange(event.target.value);
@@ -31,17 +28,6 @@ const Calculate: React.FC<CalculateProps> = ({ carts }) => {
   
       {loading && <p>Loading...</p>}
       {error && <p className="calculate__error">{error}</p>}
-  
-      {showModal && apiResponse && (
-        <Modal onClose={handleCloseModal}>
-          <Title type='h2' text={`Total Groups: ${apiResponse.totalGroups}`} className='calculate__title' />
-          <Title type='h2' text={`Total Discount Groups: ${apiResponse.totalDiscountGroups}`} className='calculate__title' />
-          <Title type='h2' text={`Total Increase Groups: ${apiResponse.totalIncreaseGroups}`} className='calculate__title' />
-          {apiResponse.groups.map((group, index) => (
-            <Groups key={index} group={group} index={index} />
-          ))}
-        </Modal>
-      )}
     </div>
   );
 };
