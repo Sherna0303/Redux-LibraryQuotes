@@ -4,6 +4,7 @@ import { CartInfo } from '../../../core/models/cart-info.model';
 import { Title } from '../../elements/Title';
 import './style.css';
 import Icon from '../../elements/Icon/inde';
+import Calculate from '../Calculate';
 
 interface CartsProps {
     carts: CartInfo[];
@@ -29,6 +30,9 @@ const Carts: React.FC<CartsProps> = ({ carts, setActiveCart, removeCart, handleA
       <button onClick={handleAddCart} className='carts__button carts__button--new' >
         <Icon color='white' size={32} icon='shopping-bag-plus'/>
       </button>
+      <div className="carts__calculate">
+        <Calculate carts={carts}/>
+      </div>
     </div>
   );
 };
