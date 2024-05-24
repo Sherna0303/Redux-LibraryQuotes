@@ -26,3 +26,14 @@
     font-weight: bold;
     color: #fff;
 }
+
+.header__cart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.header__cart:hover {
+    transform: scale(1.1);
+}
