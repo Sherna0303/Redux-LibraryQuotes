@@ -1,0 +1,158 @@
+.main__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 20px;
+    background-color: #136696;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main__logo-container {
+    display: flex;
+    margin-left: 80px;
+    gap: 5px;
+    align-items: center;
+}
+
+.logo__text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav__header {
+    margin-right: 80px;
+    display: flex;
+    align-items: center
+}
+
+.menu__header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.item__header {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 550;
+    transition: color 0.3s ease;
+}
+
+.button__header {
+    padding: 8px 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #75a1e4d0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button__header:hover {
+    background-color: #45a4e4;
+}
+
+#checkbox {
+    display: none;
+}
+
+.header__toggle {
+    position: relative;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0px 40px;
+    transition-duration: .5s;
+}
+
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(105, 156, 231);
+    border-radius: 4px;
+}
+
+#bar2 {
+    transition-duration: .8s;
+}
+
+#bar1,
+#bar3 {
+    width: 100%;
+}
+
+#checkbox:checked+.header__toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.header__toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.header__toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.header__toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.header__toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+}
+
+@media screen and (width <=780px) {
+
+    .header__menu--hidden {
+        display: none !important;
+    }
+
+    .nav__header {
+        z-index: 500;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        position: fixed;
+        transition: right .3s ease-in-out;
+        top: 0;
+        right: 0;
+        height: 100dvh;
+        background-color: #136696;
+        box-shadow: 0 -2px 20px 1px #00000040;
+        width: 70%;
+        gap: 40px;
+    }
+}
+
+@media screen and (width <=405px) {
+    .main__logo-container {
+        display: flex;
+        margin-left: 0;
+        gap: 5px;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (width > 780px) {
+    .header__toggle {
+        display: none;
+    }
+}

@@ -1,0 +1,14 @@
+.main__footer {
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    background-color: #136696;
+    height: 55px;
+}
+
+.main__copyright {
+    margin: 0 auto;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
