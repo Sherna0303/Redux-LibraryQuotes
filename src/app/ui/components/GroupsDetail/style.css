@@ -15,6 +15,11 @@
     margin-bottom: 5px;
 }
 
+.group__paragraph-line {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
 .group__copies {
     margin-top: 12px;
     display: flex;

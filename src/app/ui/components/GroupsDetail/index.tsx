@@ -15,7 +15,8 @@ const Groups: React.FC<GroupsProps> = ({ group, index }) => (
     <Paragraph text={`Seniority: ${group.seniority}`} className={'group__paragraph'} />
     <Paragraph text={`Total: ${group.total.toFixed(2)}`} className={'group__paragraph'} />
     <Paragraph text={`Total Discount: ${group.totalDiscount.toFixed(2)}`} className={'group__paragraph'} />
-    <Paragraph text={`Total Increase: ${group.totalIncrease.toFixed(2)}`} className={'group__paragraph'} />
+    <Paragraph text={`Total Increase: ${group.totalIncrease.toFixed(2)}`} className={'group__paragraph group__paragraph-line'} />
+    <Title type='h3' text='Copies:' className='group__subtitle' />
     <ul className='group__copies'>
       {group.copies.map((copy, copyIndex) => (
         <CopyDetail key={copyIndex} copy={copy} />
