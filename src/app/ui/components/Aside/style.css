@@ -1,0 +1,22 @@
+.aside__main {
+    transition: transform 0.3s ease;
+    position: fixed;
+    right: 0;
+    top: 70px;
+    width: 300px;
+    height: 90%;
+    background: #f4f4f4;
+    border-left: 1px solid #ddd;
+    transform: translateX(100%);
+    z-index: 2;
+    overflow-y: auto;
+}
+  
+.aside--visible {
+    transform: translateX(0);
+}
+  
+.aside--hidden {
+    transform: translateX(100%);
+}
+  
