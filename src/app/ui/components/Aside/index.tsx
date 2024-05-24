@@ -35,9 +35,9 @@ const Aside: React.FC = () => {
   };
 
   return (
-    <aside className={`aside__main ${showAside ? 'aside--visible' : 'aside--hidden'}`}>
-      <Button text='Show Carts' className='aside__button' onClick={() => dispatch(setContent('carts'))}/>
-      <Button text={activeCart ? `Cart# ${activeCart.readableId}` : 'Empty'} className='aside__button' onClick={() => dispatch(setContent('cartDetails'))}/>
+    <aside className={`aside__main ${showAside ? 'aside__main-visible' : 'aside__main-hidden'}`}>
+      <Button text='Show Bags' className={`aside__button ${content === 'cartDetails' ? 'aside__button-disabled' : 'aside__button-active'}`} onClick={() => dispatch(setContent('carts'))}/>
+      <Button text={activeCart ? `Bag - ${activeCart.readableId}` : 'Empty'} className={`aside__button ${content === 'carts' ? 'aside__button-disabled' : 'aside__button-active'}`} onClick={() => dispatch(setContent('cartDetails'))}/>
 
       {showAside && (
         <div className="aside__content">

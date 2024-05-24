@@ -12,11 +12,29 @@
     overflow-y: auto;
 }
   
-.aside--visible {
+.aside__main-visible {
     transform: translateX(0);
 }
   
-.aside--hidden {
+.aside__main-hidden {
     transform: translateX(100%);
 }
-  
+
+.aside__button {
+    width: 50%;
+    color: white;
+    background-color: #0f5177;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.aside__button-active {
+    background-color: #187ab3;
+    width: 60%;
+}
+
+.aside__button-disabled {
+    width: 40%;
+}
