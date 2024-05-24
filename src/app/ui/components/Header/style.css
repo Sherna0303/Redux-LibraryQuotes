@@ -37,3 +37,9 @@
 .header__cart:hover {
     transform: scale(1.1);
 }
+
+@media screen and (width < 528px) {
+    .header__main {
+        margin: auto 20px;
+    }
+}

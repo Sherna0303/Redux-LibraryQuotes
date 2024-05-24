@@ -39,3 +39,9 @@
 .aside__button-disabled {
     width: 40%;
 }
+
+@media screen and (width < 500px) {
+    .aside__main {
+        width: 100%;
+    }
+}

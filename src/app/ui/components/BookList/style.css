@@ -12,3 +12,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+@media screen and (width < 500px) {
+    .books__container {
+        margin: 100px 40px;
+    }
+}
