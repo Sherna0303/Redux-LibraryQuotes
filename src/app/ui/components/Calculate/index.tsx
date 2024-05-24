@@ -4,6 +4,7 @@ import { Label } from '../../elements/Label';
 import { useCalculate } from '../../../core/hooks/useCalculate';
 import { ChangeEvent } from 'react';
 import './style.css';
+import { Paragraph } from '../../elements/Paragraph';
 
 interface CalculateProps {
     carts: CartInfo[];
@@ -23,11 +24,9 @@ const Calculate: React.FC<CalculateProps> = ({ carts }) => {
   return (
     <div className='calculate__container'>
       <Label classNameInput="calculate__input" classNameLabel="calculate__label" classNameSpan="calculate__span" nameInput="date" text="" type="date" onChange={onDateChange} />
-      <Button onClick={onCalculate} text="Calculate" className="calculate__button" />
+      <Button onClick={onCalculate} text={loading ? 'Loading...' : 'Calculate'} className="calculate__button" />
+      {error && <Paragraph text={error || ''} className='calculate__error' />}
       
-  
-      {loading && <p>Loading...</p>}
-      {error && <p className="calculate__error">{error}</p>}
     </div>
   );
 };
