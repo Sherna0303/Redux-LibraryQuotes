@@ -1,0 +1,70 @@
+.cart__container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cart__title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cart__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart__book {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cart__book:last-child {
+    border-bottom: none;
+}
+
+.cart__book-title {
+    font-size: 1.1em;
+    flex: 2;
+    color: #333;
+}
+
+.cart__quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.cart__book-button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 0 5px;
+}
+
+.cart__book-button--remove {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.cart__book-button:hover {
+    opacity: 0.8;
+}
+
+.cart__book-quantity {
+    font-size: 1em;
+    text-align: center;
+    width: 40px;
+}
